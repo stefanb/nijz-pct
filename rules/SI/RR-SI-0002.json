@@ -1,0 +1,50 @@
+{
+  "AffectedFields": [
+    "r.0",
+    "r.0.ci"
+  ],
+  "CertificateType": "Recovery",
+  "Country": "SI",
+  "Description": [
+    {
+      "desc": "The recovery certificate should not be on the revoked list.",
+      "lang": "en"
+    },
+    {
+      "desc": "Potrdilo o prebolevnosti ne sme biti na seznamu preklicanih.",
+      "lang": "si"
+    }
+  ],
+  "Engine": "CERTLOGIC",
+  "EngineVersion": "0.7.5",
+  "Identifier": "RR-SI-0002",
+  "Logic": {
+    "if": [
+      {
+        "var": "payload.r.0"
+      },
+      {
+        "!": [
+          {
+            "in": [
+              {
+                "var": "payload.r.0.ci"
+              },
+              [
+                "01IT062BE23E5BBE40649AC2F33926325BC4#8",
+                "01IT444B1A0B6C51423BB90FD4C4BB606508#9",
+                "URN:UVCI:01:SI:D05FD0F3219A2178E053#E"
+              ]
+            ]
+          }
+        ]
+      },
+      true
+    ]
+  },
+  "SchemaVersion": "1.0.0",
+  "Type": "Acceptance",
+  "ValidFrom": "2021-11-11T00:00:00Z",
+  "ValidTo": "2030-06-01T00:00:00Z",
+  "Version": "1.0.0"
+}
